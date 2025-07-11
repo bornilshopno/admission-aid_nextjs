@@ -8,9 +8,9 @@ const Navbar = () => {
     const navMenu = () => {
         return <>
             <li><Link href={'/'}>HOME</Link></li>
-            <li><Link href={'/'}>COLLEGES</Link></li>
-            <li><Link href={'/'}>ADMISSION</Link></li>
-            <li><Link href={'/'}>MY COLLEGE</Link></li>
+            <li><Link href={'/colleges'}>COLLEGES</Link></li>
+            <li><Link href={'/admission'}>ADMISSION</Link></li>
+            <li><Link href={'/myCollege'}>MY COLLEGE</Link></li>
         </>
     }
     return (
@@ -33,7 +33,7 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <a className="btn btn-outline">LogIn</a>
+                    <Link href={"/login"} className="btn btn-outline">LogIn</Link>
                 </div>
                   <div className="dropdown dropdown-end">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">

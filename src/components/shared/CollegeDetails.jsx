@@ -4,16 +4,10 @@ import React from 'react';
 import { FaArrowAltCircleRight } from "react-icons/fa";
 
 
-const CollegeCard = ({ college }) => {
-    const { _id, collegeImage, collegeName, admissionDate, events, researchHistory, sports } = college;
-
-    // "id": 6,
-    // "collegeImage": "/assets/college6.jpg",
-    // "collegeName": "Bright Future Law School",
-    // "admissionDate": "2025-09-05",
-    // "events": ["Moot Court", "Legal Awareness Week", "Debate Championship"],
-    // "researchHistory": "Recognized for legal research and constitutional law studies.",
-    // "sports": ["Football", "Debating", "Carrom"]
+const CollegeDetails = ({college}) => {
+    const {collegeImage, collegeName, admissionDate, events, researchHistory, sports } = college;
+    console.log("college", college)//found college object with collegeImage:url
+console.log(collegeImage)// why undefined here
     return (
         <div>
             <div className="card bg-base-100 shadow-sm">
@@ -23,7 +17,7 @@ const CollegeCard = ({ college }) => {
                 </div>
                 <div className="card-body px-0">
                     <h2 className="card-title">
-                        {collegeName}
+                       CollegeName:  {collegeName}
 
                     </h2>
                     <div className="badge badge-secondary">Admission Open : {admissionDate}</div>
@@ -35,10 +29,10 @@ const CollegeCard = ({ college }) => {
                         {sports?.map((event, idx) => (<div key={idx} className="badge badge-outline bg-green-400">{event}</div>))}
                     </div>
                 </div>
-                <Link className='flex items-center gap-2 btn' href={`/college/${college._id}`}>Details <FaArrowAltCircleRight /></Link>
+                {/* <Link className='flex items-center gap-2 btn' href={`/college/${college._id}`}>Details <FaArrowAltCircleRight /></Link> */}
             </div>
         </div>
     );
 };
 
-export default CollegeCard;
+export default CollegeDetails;
