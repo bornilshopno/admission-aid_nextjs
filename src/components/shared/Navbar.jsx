@@ -1,10 +1,20 @@
+"use client"
+
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import { MdOutlineMenuOpen } from "react-icons/md";
 import Logo from '../lib/Logo';
+import useAuth from '../lib/useAuth';
 
 const Navbar = () => {
+    const {user, userSignOut } = useAuth()
+    function capitalizeFirstLetter(str) {
+  if (!str) return '';
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}
+    const splitted=user?.email?.split('@')[0]
+    console.log(splitted)
     const navMenu = () => {
         return <>
             <li><Link href={'/'}>HOME</Link></li>
@@ -15,16 +25,11 @@ const Navbar = () => {
     }
     return (
         <>
-            <div className="navbar bg-base-100 shadow-sm">
+            <div className="navbar bg-base-100 shadow-sm ">
                 <div className="navbar-start">
                     <Logo/>
                   
-                    {/* <Link href={'/'}>
-                        <div className='flex items-center gap-2 border-2 py-1 px-2 rounded-3xl'>
-                            <Image src={'/assets/logo-AddAid.jpg'} width={30} height={30} alt='logoImage' className='rounded-full' />
-                            <p className='font-semibold'>Addmission Aid</p>
-                        </div>
-                    </Link> */}
+                 
 
                 </div>
                 <div className="navbar-center hidden lg:flex">
@@ -32,9 +37,16 @@ const Navbar = () => {
                         {navMenu()}
                     </ul>
                 </div>
+               { user ? <>
+                 <div className="navbar-end ">
+                    <button onClick={()=>userSignOut()} className="btn btn-outline">LogOut {capitalizeFirstLetter(user?.email?.split('@')[0])}</button>
+                    {/* <h4>{user.email}</h4> */}
+                </div>
+               </> : <>
                 <div className="navbar-end">
                     <Link href={"/login"} className="btn btn-outline">LogIn</Link>
                 </div>
+                </>}
                   <div className="dropdown dropdown-end">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
                             <MdOutlineMenuOpen  className='text-3xl'/>

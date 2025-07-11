@@ -1,3 +1,5 @@
+// "use server"
+
 import dbConnect, { collectionNames } from '@/components/lib/dbConnect';
 
 import CollegeDetails from '@/components/shared/CollegeDetails';
@@ -12,10 +14,15 @@ const page = async ({ params }) => {
   if (!collegeData){
     return <>College data loading</>
   }
+
+    const plainCollegeData = {
+    ...collegeData,
+    _id: collegeData._id.toString(),
+  };
       return (
         <div className='w-11/12 md:w-10/12 mx-auto py-5 md:py-10'>
 
-            <CollegeDetails college={collegeData} />
+            <CollegeDetails college={plainCollegeData} />
         </div>
     );
 };
