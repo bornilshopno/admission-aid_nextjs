@@ -20,7 +20,9 @@ const Navbar = () => {
             <li><Link href={'/'}>HOME</Link></li>
             <li><Link href={'/colleges'}>COLLEGES</Link></li>
             <li><Link href={'/admission'}>ADMISSION</Link></li>
+           { user && <>
             <li><Link href={'/myCollege'}>MY COLLEGE</Link></li>
+            <li><Link href={'/addCollege'}>ADD COLLEGE</Link></li></>}
         </>
     }
     return (
@@ -39,8 +41,8 @@ const Navbar = () => {
                 </div>
                { user ? <>
                  <div className="navbar-end ">
-                    <button onClick={()=>userSignOut()} className="btn btn-outline">LogOut {capitalizeFirstLetter(user?.email?.split('@')[0])}</button>
-                    {/* <h4>{user.email}</h4> */}
+                    <button onClick={()=>userSignOut()} className="btn btn-outline">LogOut {capitalizeFirstLetter(user?.email?.split('@')[0])}?</button>
+                    
                 </div>
                </> : <>
                 <div className="navbar-end">
