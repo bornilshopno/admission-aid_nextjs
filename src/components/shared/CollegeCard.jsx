@@ -27,12 +27,12 @@ const CollegeCard = ({ college }) => {
 
                     </h2>
                     <div className="badge badge-secondary">Admission Open : {admissionDate}</div>
-                    <p>{researchHistory}</p>
+                    <p className='h-16'>{researchHistory}</p>
                     <div className="card-actions justify-end pr-2">
-                        {events?.map((event, idx) => (<div key={idx} className="badge badge-outline">{event}</div>))}
+                        {events?.slice(0,2).map((event, idx) => (<div key={idx} className="badge badge-outline">{event}</div>))}
                     </div>
                     <div className="card-actions justify-end pr-2">
-                        {sports?.map((event, idx) => (<div key={idx} className="badge badge-outline bg-green-400">{event}</div>))}
+                        {sports?.slice(0,2).map((event, idx) => (<div key={idx} className="badge badge-outline bg-green-400">{event}</div>))}
                     </div>
                 </div>
                 <Link className='flex items-center gap-2 btn' href={`/college/${college._id}`}>Details <FaArrowAltCircleRight /></Link>
