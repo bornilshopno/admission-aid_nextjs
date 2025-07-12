@@ -1,24 +1,31 @@
-import React from 'react';
+'use client'
+
+import React, { useEffect, useState } from 'react';
 import CollegeCard from '../shared/CollegeCard';
-import axios from 'axios';
 import useAxiosPublic from '../lib/useAxiosPublic';
 
+const CollegeSection = () => {
+  const [colleges, setColleges] = useState([]);
+  const axiosPublic = useAxiosPublic();
 
-const CollegeSection = async() => {
-    const axiosPublic=useAxiosPublic()
+  useEffect(() => {
+    axiosPublic.get(`/api/allCollege`)
+      .then(res => {
+        setColleges(res.data);
+      })
+      .catch(err => console.error('Fetch error:', err));
+  }, []);
 
-    const collegesData= await axiosPublic.get(`/api/allCollege`);
-    console.log(collegesData)
- 
-
-    return (
-        <div className='w-11/12 md:w-10/12 mx-auto'>
-            <h1 className='text-center my-5 lg:my-10'>Colleges We Deal With</h1>
-            <div className='grid gap-5 lg:grid-cols-3 justify-items-center'>
-                {collegesData?.data.slice(0,3).map((college) => (<CollegeCard key={college._id} college={college}></CollegeCard>))}
-            </div>
-        </div>
-    );
+  return (
+    <div className='w-11/12 md:w-10/12 mx-auto'>
+      <h1 className='text-center my-5 lg:my-10'>Colleges We Deal With</h1>
+      <div className='grid gap-5 lg:grid-cols-3 justify-items-center'>
+        {colleges.slice(0, 3).map((college) => (
+          <CollegeCard key={college._id} college={college} />
+        ))}
+      </div>
+    </div>
+  );
 };
 
 export default CollegeSection;

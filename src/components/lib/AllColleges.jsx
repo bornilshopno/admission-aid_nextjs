@@ -7,7 +7,9 @@ import { useState } from 'react';
 
 const AllColleges = () => { 
     const [search, setSearch] = useState('')
-    // const [debouncedSearch] = useDebounce(search, 1000)
+    console.log(search, "search")
+    console.log(search)
+
     const { data: allCollege = [], isLoading, refetch } = useQuery({
         queryKey: ['colleges', search],
         queryFn: async () => {
@@ -16,15 +18,7 @@ const AllColleges = () => {
             return res.data
         }
     })
-    // const filterTedCollege = useMemo(() => {
-    //     if (!debouncedSearch.trim()) return allCollege
-
-    //     return allCollege.filter(collage =>
-    //         collage.college_Name.toLowerCase().includes(debouncedSearch.toLocaleLowerCase())
-    //     )
-
-
-    // }, [debouncedSearch, allCollege])
+  
     return { allCollege, isLoading, setSearch, search,refetch };
 };
 

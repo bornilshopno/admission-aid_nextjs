@@ -1,19 +1,15 @@
+'use client'
 
 
-import useAxiosPublic from '@/components/lib/useAxiosPublic';
+import AllColleges from '@/components/lib/AllColleges';
 import CollegeCard from '@/components/shared/CollegeCard';
 
 
 
-const page = async () => {
 
+const page =  () => {
 
-     const axiosPublic=useAxiosPublic()
-
-    const collegesData= await axiosPublic.get(`/api/allCollege`);
-    console.log(collegesData)
-
-
+const {allCollege}=AllColleges();
 
 
 
@@ -22,7 +18,7 @@ const page = async () => {
             <h1>All Collge</h1>
 
             <div className='w-11/12 md:w-10/12 mx-auto py-5 md:py-10 grid md:grid-cols-2 lg:grid-cols-3 gap-5'>
-                {collegesData?.data?.map(college => (<CollegeCard key={college._id} college={college}></CollegeCard>))}
+                {allCollege?.map(college => (<CollegeCard key={college._id} college={college}></CollegeCard>))}
             </div>
         </>
     );
