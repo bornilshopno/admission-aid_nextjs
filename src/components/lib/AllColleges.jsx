@@ -2,8 +2,8 @@
 
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
-import React, { useMemo, useState } from 'react';
-import { useDebounce } from 'use-debounce';
+import { useState } from 'react';
+
 
 const AllColleges = () => { 
     const [search, setSearch] = useState('')

@@ -2,7 +2,7 @@ import React from 'react';
 import Banner from './Banner';
 import CollegeSection from './CollegeSection';
 
-const Homepage = () => {
+const HomePage = () => {
     return (
         <div>
 
@@ -13,4 +13,4 @@ const Homepage = () => {
     );
 };
 
-export default Homepage;
+export default HomePage;
