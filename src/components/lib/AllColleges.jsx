@@ -7,25 +7,25 @@ import { useDebounce } from 'use-debounce';
 
 const AllColleges = () => { 
     const [search, setSearch] = useState('')
-    const [debouncedSearch] = useDebounce(search, 1000)
+    // const [debouncedSearch] = useDebounce(search, 1000)
     const { data: allCollege = [], isLoading, refetch } = useQuery({
-        queryKey: ['colleges', debouncedSearch],
+        queryKey: ['colleges', search],
         queryFn: async () => {
-            const res = await axios.get(`/api/allCollege?search=${search}`)
+            const res = await axios.get(`/api/searchCollege?search=${search}`)
             console.log(res);
             return res.data
         }
     })
-    const filterTedCollage = useMemo(() => {
-        if (!debouncedSearch.trim()) return allCollege
+    // const filterTedCollege = useMemo(() => {
+    //     if (!debouncedSearch.trim()) return allCollege
 
-        return allCollege.filter(collage =>
-            collage.collage_Name.toLowerCase().includes(debouncedSearch.toLocaleLowerCase())
-        )
+    //     return allCollege.filter(collage =>
+    //         collage.college_Name.toLowerCase().includes(debouncedSearch.toLocaleLowerCase())
+    //     )
 
 
-    }, [debouncedSearch, allCollege])
-    return { allCollage: filterTedCollage, isLoading, setSearch, search,refetch };
+    // }, [debouncedSearch, allCollege])
+    return { allCollege, isLoading, setSearch, search,refetch };
 };
 
 export default AllColleges;

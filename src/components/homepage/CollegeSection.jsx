@@ -1,17 +1,21 @@
 import React from 'react';
 import CollegeCard from '../shared/CollegeCard';
-import dbConnect, { collectionNames, } from '../lib/dbConnect';
+import axios from 'axios';
+import useAxiosPublic from '../lib/useAxiosPublic';
+
 
 const CollegeSection = async() => {
+    const axiosPublic=useAxiosPublic()
 
-    const collegesData= await dbConnect(collectionNames.collegeCollection).find().toArray();
+    const collegesData= await axiosPublic.get(`/api/allCollege`);
+    console.log(collegesData)
  
 
     return (
         <div className='w-11/12 md:w-10/12 mx-auto'>
             <h1 className='text-center my-5 lg:my-10'>Colleges We Deal With</h1>
             <div className='grid gap-5 lg:grid-cols-3 justify-items-center'>
-                {collegesData?.slice(0,3).map((college) => (<CollegeCard key={college._id} college={college}></CollegeCard>))}
+                {collegesData?.data.slice(0,3).map((college) => (<CollegeCard key={college._id} college={college}></CollegeCard>))}
             </div>
         </div>
     );
