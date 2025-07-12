@@ -1,3 +1,5 @@
+
+
 import useAxiosPublic from '@/components/lib/useAxiosPublic';
 import CollegeCard from '@/components/shared/CollegeCard';
 
@@ -12,7 +14,7 @@ const page = async () => {
     console.log(collegesData)
 
 
-    // const collegeDatas = axiosPublic.get(`/api/allCollege`)
+
 
 
     return (
