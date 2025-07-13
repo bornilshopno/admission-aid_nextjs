@@ -7,7 +7,7 @@ import { ObjectId } from 'mongodb';
 import React from 'react';
 
 const page = async ({ params }) => {
-    const collegeID =  params.id;
+    const collegeID = await params.id;
     console.log(collegeID)
     const db= dbConnect(collectionNames.collegeCollection)
     const collegeData = await db.findOne({ _id: new ObjectId(collegeID) })

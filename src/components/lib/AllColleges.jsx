@@ -13,7 +13,7 @@ const AllColleges = () => {
     const { data: allCollege = [], isLoading, refetch } = useQuery({
         queryKey: ['colleges', search],
         queryFn: async () => {
-            const res = await axios.get(`/api/searchCollege?search=${search}`)
+            const res = await axios.get(`/api/allCollege`)
             console.log(res);
             return res.data
         }
