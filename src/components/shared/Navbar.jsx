@@ -14,7 +14,6 @@ const Navbar = () => {
   return str.charAt(0).toUpperCase() + str.slice(1);
 }
     const splitted=user?.email?.split('@')[0]
-    console.log(splitted)
     const navMenu = () => {
         return <>
             <li><Link href={'/'}>HOME</Link></li>
