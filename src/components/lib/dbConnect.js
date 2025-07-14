@@ -2,7 +2,9 @@
 import { MongoClient, ServerApiVersion } from "mongodb";
 
 export const collectionNames={
-    collegeCollection: 'colleges'
+    collegeCollection: 'colleges',
+    submissionCollection: 'submissions',
+    usersCollection:'users,'
 }
 
 

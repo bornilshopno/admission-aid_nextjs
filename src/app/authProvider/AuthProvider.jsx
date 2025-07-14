@@ -10,6 +10,7 @@ import { app } from "@/components/lib/firebaseInit";
 const AuthProvider = ({ children }) => {
     const [loading, setLoading] = useState(true)
     const [user, setUser] = useState(null)
+    const [search, setSearch]=useState('')
 
    
   
@@ -44,7 +45,7 @@ const AuthProvider = ({ children }) => {
     }, [auth])
 
 
-    const authInfo = { loading, setLoading, createUser, loginUser, user, setUser, userSignOut, googleSignIn, auth }
+    const authInfo = { loading, setLoading, createUser, loginUser, user, setUser, userSignOut, googleSignIn, auth, search, setSearch }
     return (
         <AuthContext.Provider value={authInfo}>
             {children}

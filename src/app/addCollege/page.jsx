@@ -42,14 +42,13 @@ const page = () => {
             addedBy: user?.email || "Anonymous"
         }
 
-        console.log(collegeDetails, 'from onSubmit')
 
   try {
 
             const res = await axios.post('/api/addCollege', collegeDetails)
             console.log('add blog', res);
             if (res.data.insertedId) {
-                toast.success('Blog Added Successful')
+                toast.success('College Added Successfuly')
                 setLoading(false)
                 reset()
             }
@@ -161,20 +160,3 @@ const page = () => {
 
 export default page;
 
-
-//    //image upload to imgbb and then get an url
-//     const imageFile = { image: data.image[0] }
-//     const res = await axiosPublicly.post(image_hosting_api, imageFile, {
-//       headers: {
-//         'content-type': 'multipart/form-data'
-//       }
-//     });
-
-
-// to add image inside form
-// const image_hosting_key = import.meta.env.VITE_IMGBB_HOSTING_API;
-// const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
-
-{/* 
-                <input {...register("image", { required: true })} type="file" className="file-input file-input-bordered w-full max-w-xs" />
-                {errors.photoURL && <span className="text-red-500">This field is required</span>} */}

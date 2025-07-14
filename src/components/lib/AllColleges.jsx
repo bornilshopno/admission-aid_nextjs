@@ -2,16 +2,12 @@
 
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
-import { useState } from 'react';
+
 
 
 const AllColleges = () => { 
-    const [search, setSearch] = useState('')
-    console.log(search, "search")
-    console.log(search)
-
-    const { data: allCollege = [], isLoading, refetch } = useQuery({
-        queryKey: ['colleges', search],
+    const { data: allCollege = [], isPending: isLoading, refetch } = useQuery({
+        queryKey: ['colleges'],
         queryFn: async () => {
             const res = await axios.get(`/api/allCollege`)
             console.log(res);
@@ -19,7 +15,7 @@ const AllColleges = () => {
         }
     })
   
-    return { allCollege, isLoading, setSearch, search,refetch };
+    return { allCollege, isLoading, refetch };
 };
 
 export default AllColleges;

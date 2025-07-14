@@ -10,7 +10,7 @@ import CollegeCard from '@/components/shared/CollegeCard';
 const page =  () => {
 
 const {allCollege}=AllColleges();
-
+console.log(allCollege, "from all college")
 
 
     return (

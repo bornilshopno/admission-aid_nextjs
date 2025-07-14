@@ -1,18 +1,20 @@
 "use client"
 
 import React, { useRef } from 'react';
-import AllColleges from '../lib/AllColleges';
+import useAuth from '../lib/useAuth';
 
 const Banner = () => {
-const inputRef=useRef()
-    const { setSearch, search } = AllColleges()
+
+    const inputRef = useRef()
+    const { setSearch, search } = useAuth()
 
     const handleSearch = (e) => {
         e.preventDefault();
         setSearch(inputRef.current.value)
         console.log(inputRef.current.value, "from banner search");
-        
-        
+   
+
+
     }
     // <input
     //             type="text"

@@ -2,25 +2,31 @@
 
 import React, { useEffect, useState } from 'react';
 import CollegeCard from '../shared/CollegeCard';
+import useAuth from '../lib/useAuth';
 import useAxiosPublic from '../lib/useAxiosPublic';
+
+
 
 const CollegeSection = () => {
   const [colleges, setColleges] = useState([]);
-  const axiosPublic = useAxiosPublic();
-
+  console.log(colleges)
+  const { search, setSearch } = useAuth()
+const axiosPublic=useAxiosPublic()
   useEffect(() => {
-    axiosPublic.get(`/api/allCollege`)
+
+    axiosPublic.get(`/api/searchCollege?search=${search}`)
       .then(res => {
         setColleges(res.data);
       })
       .catch(err => console.error('Fetch error:', err));
-  }, []);
+  }, [search]
+)
 
   return (
     <div className='w-11/12 md:w-10/12 mx-auto'>
       <h1 className='text-center italic text-2xl font-semibold my-5'>Colleges We Deal With</h1>
       <div className='grid gap-5 lg:grid-cols-3 justify-items-center'>
-        {colleges.slice(0, 3).map((college) => (
+        {colleges?.slice(0, 3).map((college) => (
           <CollegeCard key={college._id} college={college} />
         ))}
       </div>
@@ -29,3 +35,24 @@ const CollegeSection = () => {
 };
 
 export default CollegeSection;
+
+  //   {
+    // axiosPublic.get(`/api/allCollege`)
+    //     .then(res => {
+    //       setColleges(res.data);
+    //     })
+    //     .catch(err => console.error('Fetch error:', err));
+    // }, []
+  // );
+
+
+  //  const { data: searchedCollege = [], isPending: searchLoading, refetch: searchRefetch } = useQuery({
+  //       queryKey: ['searchedCollege', search],
+  //       queryFn: async () => {
+  //           const res = await axios.get(`/api/searchCollege?search=${search}`)
+  //           console.log(res);
+  //           return res.data
+  //       }
+  //   })
+
+  //   return { searchedCollege, searchLoading,searchRefetch  };
