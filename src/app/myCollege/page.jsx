@@ -12,7 +12,7 @@ const Page = () => {
 
     const { data: myCollege = [], isLoading, error } = useQuery({
         queryKey: ['myCollege', user?.email],
-        enabled: !!user?.email, // ✅ avoids running if user is not ready
+        enabled: !!user?.email, 
         queryFn: async () => {
             const res = await axiosPublic.get(`/api/myCollege/${user.email}`);
             return res.data;
@@ -50,7 +50,7 @@ const Page = () => {
 
     return (
         <div className='w-11/12 md:w-10/12 mx-auto py-5 md:py-10'>
-            <h1 className='text-center italic text-2xl font-semibold my-5'>My Colleges</h1>
+            <h1 className='text-center italic text-2xl font-semibold my-5'>My Submissions</h1>
             <TableData myCollege={myCollege} isLoading={isLoading} />
         </div>
     );

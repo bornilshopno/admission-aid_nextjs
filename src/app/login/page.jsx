@@ -4,7 +4,6 @@
 import useAuth from '@/components/lib/useAuth';
 import SocialLogin from '@/components/shared/SocialLogin';
 import { usePathname, useRouter } from 'next/navigation';
-// import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 import { IoMdEyeOff } from "react-icons/io";
 import { IoEye } from "react-icons/io5";
@@ -14,7 +13,7 @@ const LogInPage = () => {
     const [visible, setVisible] = useState(false)
     const navigate = useRouter()
     const location = usePathname()
-
+ 
      const handleSignIn = (e) => {
         e.preventDefault()
         const form = e.target;
@@ -26,7 +25,7 @@ const LogInPage = () => {
                 const loggedinUser = userCredential.user;
                 setUser(loggedinUser);
                 setLoading(false)
-                navigate.push(location?.state ? location.state : "/")
+                navigate.push(location? location : "/")
             })
             .catch((error) => {
                 const errorCode = error.code;

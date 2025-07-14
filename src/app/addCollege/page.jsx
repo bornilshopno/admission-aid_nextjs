@@ -46,7 +46,7 @@ const page = () => {
   try {
 
             const res = await axios.post('/api/addCollege', collegeDetails)
-            console.log('add blog', res);
+            
             if (res.data.insertedId) {
                 toast.success('College Added Successfuly')
                 setLoading(false)
@@ -61,7 +61,7 @@ const page = () => {
     return (
         <div>
             <h2 className='text-center italic font-semibold text-2xl py-4'>Add A College</h2>
-            <form className='space-y-2 max-w-2xl mx-auto border-2 p-4' onSubmit={handleSubmit(onSubmit)}>
+            <form className='space-y-2 max-w-2xl mx-auto shadow-2xl p-4' onSubmit={handleSubmit(onSubmit)}>
                 <div className='flex justify-between gap-4 items-center '>
                     <label className='w-36'>
                         College Name:

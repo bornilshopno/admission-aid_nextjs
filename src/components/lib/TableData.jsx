@@ -12,7 +12,6 @@ const TableData = ({ myCollege, isLoading }) => {
 
     const handleFeedbackOpen = (college) => {
         setFeedbackForCollege(college)
-        console.log(college);
         setIsOpen(true);
     };
     const handleFeedbackClose = () => {
@@ -23,8 +22,8 @@ const TableData = ({ myCollege, isLoading }) => {
 
     return (
         <div className="overflow-x-auto my-12">
-            <h2 className='text-center text-2xl font-bold mb-4'>Your Submission List</h2>
 
+            <p className='text-center max-w-lg mx-auto italic mb-5'>View all your college admission applications in one place — track status, review details, and stay organized with ease.</p>
             {isOpen && (
                 <div className="modal modal-open">
                     <div className="modal-box">
@@ -75,8 +74,8 @@ const TableData = ({ myCollege, isLoading }) => {
 
                 </tbody>
                 {/* foot */}
-                <tfoot className=' flex justify-center '>
-                    <tr className=' '><td>Submission Details</td></tr>
+                <tfoot className=''>
+                    <tr className=' '> <td colSpan="7" className="text-center font-semibold py-3">Submission Details</td></tr>
                 </tfoot>
             </table>
         </div>

@@ -8,9 +8,7 @@ import { toast } from 'react-toastify';
 
 
 const FeedbackModal = ({ college, setIsOpen }) => {
-    console.log(college)
-
-    const axiosPublic = useAxiosPublic()
+ const axiosPublic = useAxiosPublic()
     const { user } = useAuth()
     const router = useRouter()
     const [rating, setRating] = useState(0)
@@ -33,7 +31,6 @@ const FeedbackModal = ({ college, setIsOpen }) => {
         
         try {
             const res = await axiosPublic.post('/api/addFeedback', feedbackForm)
-            console.log('addFeedback', res);
             if (res.data.insertedId) {
                 toast.success(`Feedback on ${college.collegeName} posted successfully`)
                 reset()

@@ -11,6 +11,7 @@ const Footer = () => {
                 <aside>
                     <Logo />
                     <p className="font-semibold">
+                       
                         Enuring Smooth Admission Procedures Since 1992
                     </p>
             
@@ -29,7 +30,9 @@ const Footer = () => {
                     </div>
                 </nav>
                     </aside>
-                <p>Copyright © {new Date().getFullYear()} - All right reserved by Education Aid Ltd</p>
+                     <hr/>
+                <p className='italic'>
+                    Copyright © {new Date().getFullYear()} - All right reserved by Admission Aid Ltd</p>
             </footer>
         </>
     );

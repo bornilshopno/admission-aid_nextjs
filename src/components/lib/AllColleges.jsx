@@ -10,7 +10,6 @@ const AllColleges = () => {
         queryKey: ['colleges'],
         queryFn: async () => {
             const res = await axios.get(`/api/allCollege`)
-            console.log(res);
             return res.data
         }
     })

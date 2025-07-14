@@ -6,9 +6,9 @@ const Logo = () => {
     return (
         <div>
              <Link href={'/'}>
-                        <div className='flex items-center gap-2 border-2 py-1 px-2 rounded-3xl'>
+                        <div className='flex items-center gap-2 border py-1 px-2 rounded-xl'>
                             <Image src={'/assets/logo-AddAid.jpg'} width={30} height={30} alt='logoImage' className='rounded-full' />
-                            <p className='font-semibold'>Admission Aid</p>
+                            <p className='font-bold italic '>Admission Aid</p>
                         </div>
                     </Link>
         </div>

@@ -10,19 +10,13 @@ const AdmissionModal = ({ selectedCollege}) => {
  const axiosPublic=useAxiosPublic()
     const { user } = useAuth()
     const router = useRouter()
-    console.log(selectedCollege);
     const {
         register,
         formState: { errors },
         handleSubmit,
         reset
     } = useForm()
-    const onSubmit = async (data) => {
-        console.log(data);
-       
-
-       
-
+    const onSubmit = async (data) => {   
          const submissionForm = {
                 name: data.name,
                 course: data.course,
@@ -34,10 +28,8 @@ const AdmissionModal = ({ selectedCollege}) => {
                 collegeId: selectedCollege._id
             }
         try {      
-            console.log(submissionForm);
-            const res = await axiosPublic.post('/api/submissionForm', submissionForm)
-            console.log('submissionForm', res);
-            if (res.data.insertedId) {
+               const res = await axiosPublic.post('/api/submissionForm', submissionForm)
+                   if (res.data.insertedId) {
                 toast.success('Your form is submitted')
                 reset()
                 router.push('/')

@@ -12,7 +12,6 @@ const page = () => {
 
     const handleOpen = (college) => {
         setSelectedCollege(college)
-        console.log(college);
         setOpen(true);
     };
     const handleClose = () => {
@@ -22,6 +21,7 @@ const page = () => {
     return (
         <div className='w-11/12 md:w-10/12 mx-auto py-5 md:py-10'>
             <h1 className='text-center italic text-2xl font-semibold my-5'>Admission</h1>
+            <p className='text-center max-w-xl mx-auto pb-5 lg:pb-10'>Discover top colleges that match your dreams! Explore admission dates, reviews, and campus highlights all in one place. Whether you're looking for academic excellence, vibrant student life, or affordable options — find the perfect college for your future right here. Your journey to higher education starts now!</p>
 
             <div className='grid grid-cols-1 lg:grid-cols-4 gap-4'>
                 {
@@ -35,10 +35,9 @@ const page = () => {
                                     alt="college" />
                                 <h2 className='text-xl mt-4 mb-8'>{college.collegeName}</h2>
                                 <Link href={`college/${college._id}`}
-                                    className='absolute left-0 bottom-0  bg-blue-400 border p-1 rounded-tr rounded-br-md'>College Details</Link>
+                                    className='absolute left-2 bottom-2 btn btn-sm  border p-1 rounded-bl-md'>Details</Link>
                                 <button onClick={() => handleOpen(college)}
-                                    className='absolute bottom-0 right-0
-                                 bg-blue-400 p-1 rounded-tl text-white cursor-pointer rounded-br-md'>
+                                    className='absolute bottom-2 right-2 btn btn-sm px-2  cursor-pointer rounded-br-md'>
                                     Get Admitted</button>
 
                             </div>

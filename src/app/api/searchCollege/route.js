@@ -13,11 +13,8 @@ export async function GET(req) {
     };
   }
 
-
   const collegeCollection = await dbConnect(collectionNames.collegeCollection);
   const result = await collegeCollection.find(query).toArray();
-
-  console.log(result);
   return NextResponse.json(result);
 }
 

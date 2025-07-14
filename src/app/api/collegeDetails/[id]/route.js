@@ -17,8 +17,6 @@ export async function GET(req, { params }) {
   if (!result) {
     return NextResponse.json({ error: "College not found" }, { status: 404 });
   }
-
-  console.log('College details:', result);
   return NextResponse.json(result);
 }
 

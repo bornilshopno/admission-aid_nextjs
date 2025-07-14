@@ -13,7 +13,7 @@ const CollegeDetails = ({ college }) => {
 
     return (
         <div>
-            <div className="card bg-base-100 shadow-sm">
+            <div className="card  shadow-sm">
                 <div className="relative w-full h-[400px]">
                     <Image
                         src={collegeImage}
@@ -38,7 +38,7 @@ const CollegeDetails = ({ college }) => {
                         <div className="card-actions justify-end pr-2">
                             {events?.map((event, idx) => (<div key={idx} className="badge badge-outline">{event}</div>))}
                         </div>
-                        <div className="card-actions justify-end pr-2">
+                        <div className="card-actions justify-end pr-2 py-5">
                             {sports?.map((event, idx) => (<div key={idx} className="badge badge-outline bg-green-400">{event}</div>))}
                         </div>
                         <button className='btn' onClick={() => setDetail(false)}>See Less</button>
