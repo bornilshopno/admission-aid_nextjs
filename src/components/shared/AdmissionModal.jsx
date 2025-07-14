@@ -31,7 +31,7 @@ const AdmissionModal = ({ selectedCollege}) => {
                 date_of_birth: data.date_of_birth,             
                 collegeName: selectedCollege.collegeName,
                 collegeImage: selectedCollege.collegeImage,
-                postID: selectedCollege._id
+                collegeId: selectedCollege._id
             }
         try {      
             console.log(submissionForm);

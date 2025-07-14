@@ -6,9 +6,8 @@ import { NextResponse } from "next/server";
 
 export async function POST(req, { params }) {
     const body = await req.json()
-    const commentCollection = await dbConnect(collectionNames.commentCollection)
+    const commentCollection = await dbConnect(collectionNames.feedbackCollection)
     const result = await commentCollection.insertOne(body)
-    console.log('add comment', result);
     return NextResponse.json(result, {
         status: 200,
         headers: corsHeaders

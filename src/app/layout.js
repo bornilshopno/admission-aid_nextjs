@@ -5,6 +5,8 @@ import Footer from "@/components/shared/Footer";
 import AuthProvider from "./authProvider/AuthProvider";
 import { ToastContainer } from "react-toastify";
 import QueryProvider from "@/components/lib/QueryProvider";
+import '@smastrom/react-rating/style.css'
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

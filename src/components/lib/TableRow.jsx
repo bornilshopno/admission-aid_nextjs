@@ -1,8 +1,14 @@
 'use client'
 import Link from 'next/link';
-import React from 'react';
+import React, { useState } from 'react';
+import FeedbackModal from '../shared/FeedbackModal';
 
-const TableRow = ({ idx, college }) => {
+const TableRow = ({ idx, college,handleFeedback }) => {
+
+  
+
+
+
     return (
         <>
             <tr className='text-center'>
@@ -45,8 +51,11 @@ const TableRow = ({ idx, college }) => {
 
                 </td>
                 <td>
-                    FeedBack
+                    <button onClick={()=>handleFeedback(college)}>Feedback</button>
                 </td>
+
+
+               
             </tr>
         </>
     );

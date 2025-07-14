@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@smastrom/react-rating": "^1.5.0",
     "@tanstack/react-query": "^5.83.0",
     "axios": "^1.10.0",
     "firebase": "^11.10.0",

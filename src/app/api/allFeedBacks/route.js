@@ -5,7 +5,7 @@ import { NextResponse } from "next/server";
 
 
 export async function GET(req, { params }) {
-    const commentCollection = await dbConnect(collectionNames.commentCollection)
+    const commentCollection = await dbConnect(collectionNames.feedbackCollection)
     const result = await commentCollection.find({}).toArray()
     console.log('all comment', result);
     return NextResponse.json(result, {

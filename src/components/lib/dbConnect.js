@@ -5,7 +5,6 @@ export const collectionNames={
     collegeCollection: 'colleges',
     submissionCollection: 'submissions',
     usersCollection:'users',
-    commentCollection:'comments',
     feedbackCollection:'feedbacks',
     
 }

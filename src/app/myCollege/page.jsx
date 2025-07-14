@@ -10,6 +10,16 @@ const Page = () => {
     const { user } = useAuth();
     const axiosPublic = useAxiosPublic();
 
+    const { data: myCollege = [], isLoading, error } = useQuery({
+        queryKey: ['myCollege', user?.email],
+        enabled: !!user?.email, // ✅ avoids running if user is not ready
+        queryFn: async () => {
+            const res = await axiosPublic.get(`/api/myCollege/${user.email}`);
+            return res.data;
+        },
+    });
+
+    //  user not yet available
     if (!user) {
         return (
             <div className='min-h-screen flex items-center justify-center text-center'>
@@ -18,15 +28,7 @@ const Page = () => {
         );
     }
 
-    const { data: myCollege = [], isLoading, error } = useQuery({
-        queryKey: ['myCollege', user?.email],
-        enabled: !!user?.email,
-        queryFn: async () => {
-            const res = await axiosPublic.get(`/api/myCollege/${user.email}`);
-            return res.data;
-        },
-    });
-
+    //  request is loading
     if (isLoading) {
         return (
             <div className="flex justify-center items-center min-h-screen space-x-2">
@@ -37,6 +39,7 @@ const Page = () => {
         );
     }
 
+    // ✅ request failed
     if (error) {
         return (
             <div className="text-center text-red-500 mt-10">
