@@ -1,5 +1,5 @@
-import { corsHeaders } from "@/app/lib/corsHeader/corsHeader";
-import { collectionNameObj, dbConnect } from "@/app/lib/dbConect/dbConect";
+
+import dbConnect from "@/components/lib/dbConnect";
 import { NextResponse } from "next/server";
 
 

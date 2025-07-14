@@ -1,5 +1,6 @@
-import { corsHeaders } from "@/app/lib/corsHeader/corsHeader";
-import { collectionNameObj, dbConnect } from "@/app/lib/dbConect/dbConect";
+
+import { corsHeaders } from "@/components/lib/corsHeader";
+import dbConnect, { collectionNames } from "@/components/lib/dbConnect";
 import { ObjectId } from "mongodb";
 import { NextResponse } from "next/server";
 
@@ -8,7 +9,7 @@ export async function PATCH(req, { params }) {
     const body = await req.json()
     const id = params.id
     console.log('updated id', id);
-    const usersCollection = await dbConnect(collectionNameObj.usersCollection)
+    const usersCollection = await dbConnect(collectionNames.usersCollection)
     const query = { _id: new ObjectId(id) }
     const updatedDoc = {
         $set: body
