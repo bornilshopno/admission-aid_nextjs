@@ -53,9 +53,9 @@ const Navbar = () => {
                         }
                     </button>
 
-                    {user ? 
-                    <button onClick={() => userSignOut()} className="btn btn-outline">LogOut <span className='hidden lg:flex'>{capitalizeFirstLetter(user?.email?.split('@')[0])}?</span></button> 
-                    : <Link href={"/login"} className="btn btn-outline">LogIn</Link>}
+                    {user ?
+                        <button onClick={() => userSignOut()} className="btn btn-outline">LogOut <span className='hidden lg:flex'>{capitalizeFirstLetter(user?.email?.split('@')[0])}?</span></button>
+                        : <Link href={"/login"} className="btn btn-outline">LogIn</Link>}
 
                 </div>
 
@@ -66,7 +66,7 @@ const Navbar = () => {
                     </div>
                     <ul
                         tabIndex={0}
-                        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-28 p-2 shadow">
+                        className="menu menu-sm dropdown-content  rounded-box z-1 mt-3 w-28 p-2 shadow">
                         {navMenu()}
                     </ul>
                 </div>

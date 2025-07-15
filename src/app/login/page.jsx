@@ -3,10 +3,12 @@
 
 import useAuth from '@/components/lib/useAuth';
 import SocialLogin from '@/components/shared/SocialLogin';
+import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 import { IoMdEyeOff } from "react-icons/io";
 import { IoEye } from "react-icons/io5";
+import { RiLoginCircleLine } from 'react-icons/ri';
 
 const LogInPage = () => {
   const { loginUser, setLoading, setUser} = useAuth()
@@ -25,7 +27,7 @@ const LogInPage = () => {
                 const loggedinUser = userCredential.user;
                 setUser(loggedinUser);
                 setLoading(false)
-                navigate.push(location? location : "/")
+                navigate.push("/")
             })
             .catch((error) => {
                 const errorCode = error.code;
@@ -48,20 +50,22 @@ const LogInPage = () => {
                                 <label className="label ">
                                     <span className="label-text">Email :</span>
                                 </label>
-                                <input type="email" name="email" placeholder="email" className="input input-bordered text-gray-700" required />
+                                <input type="email" name="email" placeholder="email" className="input input-bordered text-gray-700 bg-gray-100" required />
                             </div>
                             <div className="form-control flex justify-between">
                                 <label className="label">
                                     <span className="label-text">Password :</span>
                                 </label>
-                                <input type={visible ? "text" : "password"} name="password" placeholder="password" className="input input-bordered text-gray-700" required />
+                                <input type={visible ? "text" : "password"} name="password" placeholder="password" className="input input-bordered text-gray-700 bg-gray-100" required />
                                 
                             </div>
                             {/* <label className="label">
                                     <a href="#" className="label-text-alt link link-hover text-white">Forgot password?</a>
                                 </label> */}
+                            <p className='flex gap-1 items-center justify-end italic text-gray-700 dark:text-white '>not registered? pls  <Link className='text-blue-700 flex  items-center font-semibold' href={'/register'}><RiLoginCircleLine/>SignUp</Link></p>
+
                             <div className="form-control mt-6 ">
-                                <button className="btn bg-gray-400 w-full rounded-lg">Login</button>
+                                <button className="btn bg-gray-400 w-full rounded-lg border-none">Login</button>
                             </div>
                         </form>
                         <button className="absolute right-8 top-31 py-2" onClick={() => setVisible(!visible)}>

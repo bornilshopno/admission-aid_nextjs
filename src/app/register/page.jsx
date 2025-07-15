@@ -9,6 +9,8 @@ import { toast } from "react-toastify";
 import Swal from "sweetalert2";
 import { IoMdEyeOff } from "react-icons/io";
 import { IoEye } from "react-icons/io5";
+import Link from 'next/link';
+import { RiLoginCircleLine } from "react-icons/ri";
 
 const RegisterPage = () => {
       const [visible, setVisible] = useState(false)
@@ -94,27 +96,28 @@ const RegisterPage = () => {
                                     <label className="label">
                                         <span className="label-text ">Name :</span>
                                     </label>
-                                    <input type="text" name="name" placeholder="Your Name" className="input input-bordered text-gray-700" required />
+                                    <input type="text" name="name" placeholder="Your Name" className="input input-bordered text-gray-700 bg-gray-100" required />
                                 </div>
                                 <div className="form-control flex justify-between">
                                     <label className="label">
                                         <span className="label-text ">Email :</span>
                                     </label>
-                                    <input type="email" name="email" placeholder="email" className="input input-bordered text-gray-700" required />
+                                    <input type="email" name="email" placeholder="email" className="input input-bordered text-gray-700 bg-gray-100" required />
                                 </div>
                              
                                 <div className="form-control flex justify-between">
                                     <label className="label">
                                         <span className="label-text">Password :</span>
                                     </label>
-                                    <input type={visible ? "text" : "password"} name="password" placeholder="password" className="input input-bordered text-gray-700" required />
+                                    <input type={visible ? "text" : "password"} name="password" placeholder="password" className="input input-bordered text-gray-700 bg-gray-100 " required />
                                 </div>
                             
 
                             </div>
                             <p className="text-red-500 font-bold text-center">{passErr}</p>
+                            <p className='flex gap-1 items-center justify-end italic text-gray-700 dark:text-white'>already signed up? pls  <Link className='text-blue-700 flex  items-center font-semibold' href={'/login'}><RiLoginCircleLine/>LogIn</Link></p>
                             <div className="form-control mt-6">
-                                <button className="btn bg-gray-400 w-full rounded-lg">Register</button>
+                                <button className="btn bg-gray-400 w-full rounded-lg border-none">Register</button>
                             </div>
                         </form>
 
