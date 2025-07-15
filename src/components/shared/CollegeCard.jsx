@@ -19,7 +19,7 @@ const CollegeCard = ({ college }) => {
                         {collegeName}
 
                     </h2>
-                    <div className="badge badge-secondary">Admission Open : {admissionDate || college.admissionStart}</div>
+                    <div className="badge border-0 bg-gray-800 text-white dark:bg-stone-300 dark:text-gray-950">Admission Open : {admissionDate || college.admissionStart}</div>
                     <p className='h-16'>{researchHistory}</p>
                     <div className="card-actions justify-end pr-2">
                         {events?.slice(0,2).map((event, idx) => (<div key={idx} className="badge badge-outline">{event}</div>))}

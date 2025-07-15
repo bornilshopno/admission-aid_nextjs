@@ -35,9 +35,9 @@ const page = () => {
                                     alt="college" />
                                 <h2 className='text-xl mt-4 mb-8'>{college.collegeName}</h2>
                                 <Link href={`college/${college._id}`}
-                                    className='absolute left-2 bottom-2 btn btn-sm  border p-1 rounded-bl-md'>Details</Link>
+                                    className='absolute left-2 bottom-2 btn btn-sm  border p-1 rounded-bl-md bg-gray-800 text-white dark:bg-stone-300 dark:text-gray-950'>Details</Link>
                                 <button onClick={() => handleOpen(college)}
-                                    className='absolute bottom-2 right-2 btn btn-sm px-2  cursor-pointer rounded-br-md'>
+                                    className='absolute bottom-2 right-2 btn btn-sm px-2  cursor-pointer rounded-br-md bg-gray-800 text-white dark:bg-stone-300 dark:text-gray-950'>
                                     Get Admitted</button>
 
                             </div>

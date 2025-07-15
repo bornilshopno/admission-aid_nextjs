@@ -15,9 +15,9 @@ const Banner = () => {
    
     return (
         <div style={{ backgroundImage: "url('/assets/banner-home.webp')" }} className='min-h-[calc(100vh-120px)] bg-cover bg-center bg-fixed flex items-center justify-center'>
-            <form className="join border-2 border-white rounded-lg p-1">
-                <input ref={inputRef} type='text' name='collegeSearch' className="input join-item text-gray-900" placeholder="Search by College Name" />
-                <button onClick={handleSearch} type='submit' className="btn join-item rounded-r-md">Search</button>
+            <form className="join border-2 border-white rounded-lg p-1 ">
+                <input ref={inputRef} type='text' name='collegeSearch' className="input join-item text-gray-900 bg-white" placeholder="Search by College Name" />
+                <button onClick={handleSearch} type='submit' className="btn join-item bg-gray-900 text-white rounded-r-md">Search</button>
             </form>
         </div>
     );
