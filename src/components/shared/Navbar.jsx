@@ -60,13 +60,13 @@ const Navbar = () => {
                 </div>
 
 
-                <div className="dropdown dropdown-end">
+                <div className="dropdown dropdown-end ">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
                         <MdOutlineMenuOpen className='text-3xl' />
                     </div>
-                    <ul
+                    <ul 
                         tabIndex={0}
-                        className="menu menu-sm dropdown-content  rounded-box z-1 mt-3 w-28 p-2 shadow">
+                        className="menu menu-sm dropdown-content  rounded-box mt-3 w-28 p-2 shadow z-50 bg-stone-300 text-gray-800 dark:bg-black dark:text-white">
                         {navMenu()}
                     </ul>
                 </div>
