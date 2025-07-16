@@ -66,7 +66,7 @@ const page = () => {
                     <label className='w-36'>
                         College Name:
                     </label>
-                    <input {...register("collegeName", { required: true })} className='input flex-1 ' placeholder='Type College Name' />
+                    <input {...register("collegeName", { required: true })} className='input flex-1 text-gray-700 bg-gray-100' placeholder='Type College Name' />
                      {errors.collegeName && <span className="text-red-500">This field is required</span>}
                 </div>
                 <div className='flex justify-between gap-4 items-center'>
@@ -75,22 +75,22 @@ const page = () => {
                     </label>
                     {/* <input className='input w-full max-w-xs' /> */}
 
-                    <input {...register("image", { required: true })} type="file" className="file-input file-input-bordered flex-1" />
+                    <input {...register("image", { required: true })} type="file" className="file-input file-input-bordered flex-1 text-gray-700 bg-gray-100" />
                     {errors.image && <span className="text-red-500">This field is required</span>}
                 </div>
-                <div className='grid grid-cols-4 gap-2 '>
+                <div className='grid grid-cols-2 md:grid-cols-4 gap-2 '>
                     <div className="form-control flex gap-4 col-span-2">
                         <label className="label w-36">
                             <span className="label-text dark:text-white">Start Date :</span>
                         </label>
-                        <input type="date"   {...register("dateStart", { required: true })} className="input input-bordered flex-1 " required />
+                        <input type="date"   {...register("dateStart", { required: true })} className="input input-bordered flex-1 text-gray-700 bg-gray-100" required />
                          {errors.dateStart && <span className="text-red-500">This field is required</span>}
                     </div>
                     <div className="form-control flex gap-4 col-span-2">
                         <label className="label w-36">
                             <span className="label-text dark:text-white">End Date :</span>
                         </label>
-                        <input type="date"  {...register("dateEnd", { required: true })} className="input input-bordered flex-1" />
+                        <input type="date"  {...register("dateEnd", { required: true })} className="input input-bordered flex-1 text-gray-700 bg-gray-100" />
                          {errors.dateEnd && <span className="text-red-500">This field is required</span>}
                     </div>
                 </div>
@@ -116,7 +116,7 @@ const page = () => {
                     <label className='w-36'>
                         Research History:
                     </label>
-                    <input {...register("researchHistory", { required: true })} className='input flex-1' placeholder='Type the history' />
+                    <input {...register("researchHistory", { required: true })} className='input flex-1 text-gray-700 bg-gray-100' placeholder='Type the history' />
                 </div>
                 <div className='flex justify-between gap-4 items-center'>
                     <label className='w-36'>
@@ -150,7 +150,7 @@ const page = () => {
                         </div> :
                         <button
                             type='submit'
-                            className="btn ">
+                            className="btn w-full justify-center">
                             Add Collage</button>
                 }
             </form>
